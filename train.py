@@ -1,8 +1,8 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
-from tensorflow import keras
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense
+# from tensorflow import keras
+from tensorflow.keras.models import Sequential # type: ignore
+from tensorflow.keras.layers import Dense # type: ignore
 
 # --- NEW: Import MLflow ---
 import mlflow
