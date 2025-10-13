@@ -31,3 +31,6 @@ outputs/
 *.in
 .DS_Store
 Thumbs.db
+
+# mlflow 
+mlruns/
