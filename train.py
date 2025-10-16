@@ -3,6 +3,8 @@ from sklearn.model_selection import train_test_split
 from tensorflow.keras.models import Sequential # type: ignore
 from tensorflow.keras.layers import Dense # type: ignore
 import os
+import matplotlib.pyplot as plt
+import json
 
 # --- Configuration ---
 DATA_PATH = 'data/data.csv'
@@ -23,6 +25,7 @@ X_train, X_test, y_train, y_test = train_test_split(
 model = Sequential([
     Dense(64, activation='relu', input_shape=(X_train.shape[1],)),
     Dense(32, activation='relu'),
+    Dense(16, activation='relu'),
     Dense(1, activation='sigmoid') # Output layer for binary classification
 ])
 
@@ -48,3 +51,24 @@ print(f"Test Accuracy: {accuracy:.4f}")
 os.makedirs('model', exist_ok=True)
 model.save(MODEL_SAVE_PATH)
 print(f"Model saved to {MODEL_SAVE_PATH}")
+
+# --- 5. save loss and epochs as json for visualization in DVC ---
+simulated_history = {
+    "loss": history.history['loss'],
+    "accuracy": history.history['accuracy'],
+}
+
+with open('model/simulated_history.json', 'w') as f:
+    json.dump(simulated_history, f)
+
+# --- save metrics and plot for visualization in DVC ---
+# create metric for train validation/test loss and accuracy
+metrics = {
+    "train_accuracy": history.history['accuracy'][-1],
+    "train_loss": history.history['loss'][-1],
+    "test_accuracy": accuracy,
+    "test_loss": loss
+}
+
+with open('model/metrics.json', 'w') as f:
+    json.dump(metrics, f)

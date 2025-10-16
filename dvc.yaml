@@ -8,7 +8,18 @@ stages:
     deps:
       - train.py
       - data/data.csv
-      
+    metrics:
+      - model/metrics.json
+
+    
     # Outputs (outs): These files are produced by the stage and are automatically versioned by DVC.
     outs:
       - model/simple_dnn_model.h5
+    
+    # NEW: Define which file contains plot data
+    plots:
+      - model/simulated_history.json:
+          # x: 'loss'
+          y: 'loss'
+          title: 'Training Loss over Epochs'
+          template: linear

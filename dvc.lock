@@ -5,14 +5,22 @@ stages:
     deps:
     - path: data/data.csv
       hash: md5
-      md5: 15e1bf8a1c004173f961dd471526b4de
-      size: 389960
+      md5: 830dcb52985afb95a0456d3cf510de08
+      size: 318769
     - path: train.py
       hash: md5
-      md5: 110746539fff4be9462fcc78bf934f1a
-      size: 1413
+      md5: 7ca244dd62625ad6ffbb018aabdcb0fa
+      size: 2138
     outs:
+    - path: model/metrics.json
+      hash: md5
+      md5: 841945466f34349fafddd6e952fe2196
+      size: 144
     - path: model/simple_dnn_model.h5
       hash: md5
-      md5: fd9349b97ca2cbc0497b511552bc4198
-      size: 68648
+      md5: ff735312b3f051ba6e71362c66a2490f
+      size: 84344
+    - path: model/simulated_history.json
+      hash: md5
+      md5: 5640d7f6e3a22c1a1a0ee41f7df977d9
+      size: 428
