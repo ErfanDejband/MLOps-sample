@@ -18,8 +18,16 @@ stages:
     
     # NEW: Define which file contains plot data
     plots:
-      - model/simulated_history.json:
-          # x: 'loss'
-          y: 'loss'
+      # Plot 1: Loss over Epochs
+      - model/simulated_history.json: 
+          x: epoch
+          y: loss
           title: 'Training Loss over Epochs'
+          template: linear
+      
+      # Plot 2: Accuracy over Epochs (using the same file)
+      - model/simulated_history.json:
+          x: epoch
+          y: accuracy
+          title: 'Training Accuracy over Epochs'
           template: linear

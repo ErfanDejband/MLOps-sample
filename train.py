@@ -53,13 +53,18 @@ model.save(MODEL_SAVE_PATH)
 print(f"Model saved to {MODEL_SAVE_PATH}")
 
 # --- 5. save loss and epochs as json for visualization in DVC ---
-simulated_history = {
-    "loss": history.history['loss'],
-    "accuracy": history.history['accuracy'],
-}
+history_data = []
+for i in range(len(history.history['loss'])):
+    history_data.append({
+        "epoch": i + 1,  # Start epoch at 1
+        "loss": history.history['loss'][i],
+        "accuracy": history.history['accuracy'][i],
+        # Add validation metrics here if available, e.g.,
+        # "val_loss": history.history.get('val_loss', [None])[i], 
+    })
 
 with open('model/simulated_history.json', 'w') as f:
-    json.dump(simulated_history, f)
+    json.dump(history_data, f, indent=4)
 
 # --- save metrics and plot for visualization in DVC ---
 # create metric for train validation/test loss and accuracy

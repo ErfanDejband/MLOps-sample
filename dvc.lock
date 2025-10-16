@@ -9,18 +9,18 @@ stages:
       size: 318769
     - path: train.py
       hash: md5
-      md5: 7ca244dd62625ad6ffbb018aabdcb0fa
-      size: 2138
+      md5: d21f9dfdeb1a680baaa574d32c8be74e
+      size: 2404
     outs:
     - path: model/metrics.json
       hash: md5
-      md5: 841945466f34349fafddd6e952fe2196
-      size: 144
+      md5: 4f70aceb06accd37902c52267c053ea2
+      size: 143
     - path: model/simple_dnn_model.h5
       hash: md5
-      md5: ff735312b3f051ba6e71362c66a2490f
+      md5: 62fb52ad5555257d575b0d10c08ca52c
       size: 84344
     - path: model/simulated_history.json
       hash: md5
-      md5: 5640d7f6e3a22c1a1a0ee41f7df977d9
-      size: 428
+      md5: d95022431ffbbe289551bee5139223b6
+      size: 1142
