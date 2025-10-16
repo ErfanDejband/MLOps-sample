@@ -1,9 +1,8 @@
 import pandas as pd
-import numpy as np
 from sklearn.model_selection import train_test_split
-from tensorflow import keras
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense
+from tensorflow.keras.models import Sequential # type: ignore
+from tensorflow.keras.layers import Dense # type: ignore
+import os
 
 # --- Configuration ---
 DATA_PATH = 'data/data.csv'
@@ -40,12 +39,12 @@ history = model.fit(
 
 # --- 3. Calculate Metric ---
 loss, accuracy = model.evaluate(X_test, y_test, verbose=0)
-print(f"Model Training Complete.")
+print("Model Training Complete.")
 print(f"Test Accuracy: {accuracy:.4f}")
 
 # --- 4. Save the Model ---
 # Create the model directory if it doesn't exist
-import os
+
 os.makedirs('model', exist_ok=True)
 model.save(MODEL_SAVE_PATH)
 print(f"Model saved to {MODEL_SAVE_PATH}")
