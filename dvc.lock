@@ -1,0 +1,18 @@
+schema: '2.0'
+stages:
+  train:
+    cmd: python train.py
+    deps:
+    - path: data/data.csv
+      hash: md5
+      md5: 15e1bf8a1c004173f961dd471526b4de
+      size: 389960
+    - path: train.py
+      hash: md5
+      md5: 110746539fff4be9462fcc78bf934f1a
+      size: 1413
+    outs:
+    - path: model/simple_dnn_model.h5
+      hash: md5
+      md5: fd9349b97ca2cbc0497b511552bc4198
+      size: 68648

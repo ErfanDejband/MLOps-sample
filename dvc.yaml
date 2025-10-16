@@ -1,0 +1,14 @@
+# Defines a sequence of stages to execute
+stages:
+  train:
+    # The command DVC executes for this stage
+    cmd: python train.py
+    
+    # Dependencies (deps): If any of these files change, the stage must rerun.
+    deps:
+      - train.py
+      - data/data.csv
+      
+    # Outputs (outs): These files are produced by the stage and are automatically versioned by DVC.
+    outs:
+      - model/simple_dnn_model.h5
