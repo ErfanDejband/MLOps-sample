@@ -16,18 +16,16 @@ stages:
     outs:
       - model/simple_dnn_model.h5
     
-    # NEW: Define which file contains plot data
-    plots:
-      # Plot 1: Loss over Epochs
-      - model/simulated_history.json: 
-          x: epoch
-          y: loss
-          title: 'Training Loss over Epochs'
-          template: linear
-      
-      # Plot 2: Accuracy over Epochs (using the same file)
-      - model/simulated_history.json:
-          x: epoch
-          y: accuracy
-          title: 'Training Accuracy over Epochs'
-          template: linear
+
+plots:
+  - loss vs epoch:
+      template: linear
+      x: loss
+      y:
+        model\simulated_history.json: epoch
+  - accuracy vs epoch:
+      template: linear
+      x: accuracy
+      y:
+        model\simulated_history.json: epoch
+
