@@ -25,7 +25,7 @@ X_train, X_test, y_train, y_test = train_test_split(
 model = Sequential([
     Dense(64, activation='relu', input_shape=(X_train.shape[1],)),
     Dense(32, activation='relu'),
-    Dense(16, activation='relu'),
+    # Dense(16, activation='relu'),
     Dense(1, activation='sigmoid') # Output layer for binary classification
 ])
 
